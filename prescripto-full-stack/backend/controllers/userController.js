@@ -10,10 +10,23 @@ import razorpay from 'razorpay';
 
 // Gateway Initialize
 const stripeInstance = new stripe(process.env.STRIPE_SECRET_KEY)
-const razorpayInstance = new razorpay({
-    key_id: process.env.RAZORPAY_KEY_ID,
-    key_secret: process.env.RAZORPAY_KEY_SECRET,
-})
+
+let razorpayInstance;
+if (process.env.RAZORPAY_KEY_ID && process.env.RAZORPAY_KEY_SECRET) {
+    razorpayInstance = new razorpay({
+        key_id: process.env.RAZORPAY_KEY_ID,
+        key_secret: process.env.RAZORPAY_KEY_SECRET,
+    });
+} else {
+    console.warn("Razorpay key_id or key_secret missing. Razorpay payments will be disabled.");
+    // Mock razorpayInstance to avoid crashes
+    razorpayInstance = {
+        orders: {
+            create: async () => { throw new Error("Razorpay not configured"); },
+            fetch: async () => { throw new Error("Razorpay not configured"); }
+        }
+    };
+}
 
 // API to register user
 const registerUser = async (req, res) => {

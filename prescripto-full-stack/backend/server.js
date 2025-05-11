@@ -1,66 +1,37 @@
-// import express from "express"
-// import cors from 'cors'
-// import 'dotenv/config'
-// import connectDB from "./config/mongodb.js"
-// import connectCloudinary from "./config/cloudinary.js"
-// import userRouter from "./routes/userRoute.js"
-// import doctorRouter from "./routes/doctorRoute.js"
-// import adminRouter from "./routes/adminRoute.js"
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
 
-// // app config
-// const express = require('express');
-// const connectDB = require('./db');
+import connectDB from "./config/mongodb.js";
+import connectCloudinary from "./config/cloudinary.js";
 
-// const app = express()
-// const port = process.env.PORT || 4000
-// connectDB()
-// connectCloudinary()
+import userRouter from "./routes/userRoute.js";
+import doctorRouter from "./routes/doctorRoute.js";
+import adminRouter from "./routes/adminRoute.js";
 
-// // middlewares
-// app.use(express.json())
-// app.use(cors())
+dotenv.config();
 
-// // api endpoints
-// app.use("/api/user", userRouter)
-// app.use("/api/admin", adminRouter)
-// app.use("/api/doctor", doctorRouter)
+const app = express();
+const PORT = process.env.PORT || 4000;
 
-// app.get("/", (req, res) => {
-//   res.send("API Working")
-// });
-
-// app.listen(4000, () => console.log(`Server started on PORT:4000`))
-
-// server.js
-import express from 'express';
-import cors from 'cors';
-import 'dotenv/config';
-
-import connectDB from './config/mongodb.js';
-import connectCloudinary from './config/cloudinary.js';
-
-import userRouter   from './routes/userRoute.js';
-import doctorRouter from './routes/doctorRoute.js';
-import adminRouter  from './routes/adminRoute.js';
-
-const app  = express();
-const port = process.env.PORT || 4000;
-
-// connect services
+// Connect to database and cloudinary
 connectDB();
 connectCloudinary();
 
-// middleware
+// Middleware
 app.use(express.json());
 app.use(cors());
 
-// routes
-app.use('/api/user',   userRouter);
-app.use('/api/doctor', doctorRouter);
-app.use('/api/admin',  adminRouter);
+// Routes
+app.use("/api/user", userRouter);
+app.use("/api/doctor", doctorRouter);
+app.use("/api/admin", adminRouter);
 
-app.get('/', (req, res) => res.send('API Working'));
+app.get("/", (req, res) => {
+  res.send("API Working");
+});
 
-app.listen(port, () => {
-  console.log(`🖥️ Server running on http://localhost:${port}`);
+// Start the server
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
 });
