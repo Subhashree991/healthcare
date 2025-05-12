@@ -16,23 +16,23 @@ const About = () => {
         <img
           className="w-full md:max-w-[360px] rounded-lg shadow-lg"
           src={assets.about_image}
-          alt="About Prescripto"
+          alt="About Carepoint"
         />
         <div className="flex flex-col gap-6 md:w-2/4 text-[15px]">
           <p>
             Welcome to{" "}
-            <span className="font-semibold text-gray-800">Prescripto</span>,
+            <span className="font-semibold text-gray-800"> Carepoint</span>,
             your trusted partner in managing your healthcare needs conveniently
-            and efficiently. At Prescripto, we understand the challenges
+            and efficiently. At Carepoint , we understand the challenges
             individuals face when it comes to scheduling doctor appointments and
             managing their health records.
           </p>
           <p>
-            Prescripto is committed to excellence in healthcare technology. We
+            Carepoint is committed to excellence in healthcare technology. We
             continuously strive to enhance our platform, integrating the latest
             advancements to improve user experience and deliver superior
             service. Whether you're booking your first appointment or managing
-            ongoing care, Prescripto is here to support you every step of the
+            ongoing care, Carepoint is here to support you every step of the
             way.
           </p>
         </div>
@@ -84,7 +84,7 @@ const About = () => {
         {[
           {
             feedback:
-              "Prescripto has revolutionized how I book my appointments!",
+              " Carepoint has revolutionized how I book my appointments!",
             name: "John Doe",
           },
           {
