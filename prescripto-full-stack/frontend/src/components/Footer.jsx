@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr] gap-12 px-6 md:px-10 lg:px-20">
         {/* --------- Brand Section --------- */}
         <div>
-          <img className="mb-5 w-36" src={assets.logo} alt="Carepoint Logo" />
+          <img className="mb-5 w-36" src={assets.logo} alt="Suraksha Logo" />
           <p className="text-gray-600 dark:text-gray-400 leading-6">
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. It has been the industry's standard dummy text since the
@@ -55,7 +55,7 @@ const Footer = () => {
       {/* --------- Footer Bottom --------- */}
       <div className="mt-10 border-t border-gray-200 dark:border-gray-700">
         <p className="text-center text-sm text-gray-500 dark:text-gray-400 pt-5">
-          © 2024 Carepoint.com — All Rights Reserved.
+          © 2024 Suraksha.com — All Rights Reserved.
         </p>
       </div>
     </footer>
