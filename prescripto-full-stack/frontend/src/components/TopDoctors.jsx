@@ -13,7 +13,7 @@ const TopDoctors = () => {
         Simply browse through our extensive list of trusted doctors.
       </p>
       <div className="w-full grid grid-cols-auto gap-4 pt-5 gap-y-6 px-3 sm:px-0">
-        {doctors.slice(0, 10).map((item, index) => (
+        {doctors.slice(0, 12).map((item, index) => (
           <div
             onClick={() => {
               navigate(`/appointment/${item._id}`);
@@ -22,7 +22,11 @@ const TopDoctors = () => {
             className="border border-[#C9D8FF] rounded-xl overflow-hidden cursor-pointer hover:translate-y-[-10px] transition-all duration-500 dark:border-gray-700"
             key={index}
           >
-            <img className="bg-[#EAEFFF] dark:bg-gray-800" src={item.image} alt="" />
+            <img
+              className="bg-[#EAEFFF] dark:bg-gray-800"
+              src={item.image}
+              alt=""
+            />
             <div className="p-4">
               <div
                 className={`flex items-center gap-2 text-sm text-center ${
